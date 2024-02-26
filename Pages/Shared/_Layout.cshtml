@@ -3,49 +3,96 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DormitoryManagement</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/DormitoryManagement.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DormManagementPro.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="./assets/css/global.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">DormitoryManagement</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    @{
+        bool isHome = true;
+    }
+    @if (!isHome)
+    {
+        <aside id="logo-sidebar" class="w-20 fixed top-16 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 drop-shadow-lg shadow-black" aria-label="Sidebar">
+            <div class="h-full w-full px-3 py-4 pt-20 flex flex-col justify-between overflow-y-auto bg-gray-100 dark:bg-gray-800">
+                <ul class="space-y-2">
+                    <li>
+                        <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                           asp-area="" asp-page="/Index">
+                            <span class="w-8 text-center">
+                                <i class="fa-solid fa-house"></i>
+                            </span>
+                            <span class="ml-3">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                           asp-area="" asp-page="/Privacy">
+                            <span class="w-8 text-center">
+                                <i class="fa-solid fa-bed"></i>
+                            </span>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Privacy</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                           asp-area="" asp-page="/User/Index">
+                            <span class="w-8 text-center">
+                                <i class="fa-solid fa-id-card"></i>
+                            </span>
+                            <span class="ml-3">User</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </aside>
+    }
+
+    <header class="fixed top-0 left-0 z-50 h-16 w-full transition-transform -translate-x-full sm:translate-x-0 drop-shadow-lg shadow-black" aria-label="Header" ">
+        <div class="w-full h-full px-4 flex items-center justify-between bg-gray-100 dark:bg-gray-800">
+            <a class="inline-flex items-center" asp-area="" asp-page="/Index">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-7" alt="Flowbite Logo" />
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Campus Dormitory</span>
+            </a>
+        @if (!isHome)
+        {
+                <div class="flex items-center">
+                    <span class="font-semibold text-gray-900 dark:text-white">Nam Dung</span>
+                    <span class="w-10 h-10 ml-3 flex items-center justify-center text-blue-900 dark:text-blue-100 bg-blue-300 dark:bg-blue-700 rounded-full"><i class="fa-solid fa-user-tie"></i></span>
+                </div>
+        }
+        else
+        {
+            <div class="flex mb-4 align-items-center">
+                    <a class="w-1/2 font-semibold text-gray-900 dark:text-white hover:cursor-pointer">Register</a>
+                    <a class="w-1/2 ml-5 font-semibold text-gray-900 dark:text-white hover:cursor-pointer">Login</a>
+                </div>
+        }
+
+        </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <script src="~b\assets\fonts\icon\fontawesome.js"></script>
+    <script src="~\assets\script/tailwindcss.js"></script>
+
+
+    <div class="container mt-16">
+        <main role="main" class="">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - DormitoryManagement - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
+    <script src="~/assets/script/tailwindcss.js"></script>
+    <script src="~/assets/fonts/icon/fontawesome.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("assets", required: false)
+
 </body>
 </html>

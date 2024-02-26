@@ -86,3 +86,4 @@ D:\02_FPTU\07_Semester7\PRN221\DormitoryManagement\bin\Debug\net6.0\runtimes\bro
 D:\02_FPTU\07_Semester7\PRN221\DormitoryManagement\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\02_FPTU\07_Semester7\PRN221\DormitoryManagement\obj\Debug\net6.0\DormitoryManagement.csproj.AssemblyReference.cache
 D:\02_FPTU\07_Semester7\PRN221\DormitoryManagement\obj\Debug\net6.0\DormitoryManagement.csproj.CopyComplete
+D:\02_FPTU\07_Semester7\PRN221\DormitoryManagement\obj\Debug\net6.0\DormitoryManagement.sourcelink.json

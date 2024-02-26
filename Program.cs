@@ -6,11 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-var app = builder.Build();
 
 builder.Services.AddDbContext<DormContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("dormContext") ?? throw new InvalidOperationException("Connection string 'dormContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DormContext") ?? throw new InvalidOperationException("Connection string 'dormContext' not found.")));
 
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

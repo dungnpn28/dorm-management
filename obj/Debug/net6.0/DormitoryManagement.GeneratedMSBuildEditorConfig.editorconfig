@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\02_FPTU\07_Semester7\PRN221\DormitoryManagement
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Index.cshtml]
