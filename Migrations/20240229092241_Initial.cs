@@ -31,7 +31,8 @@ namespace DormitoryManagement.Migrations
                     room_type_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     type_name = table.Column<string>(type: "varchar(255)", unicode: false, maxLength: 255, nullable: false),
-                    max_beds = table.Column<int>(type: "int", nullable: false)
+                    max_beds = table.Column<int>(type: "int", nullable: false),
+                    price_per_month = table.Column<decimal>(type: "money", nullable: true)
                 },
                 constraints: table =>
                 {

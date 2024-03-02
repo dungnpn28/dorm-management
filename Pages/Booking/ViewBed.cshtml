@@ -1,0 +1,74 @@
+﻿@page
+@model DormitoryManagement.Pages.Booking.ViewBedModel
+
+@{
+    ViewData["Title"] = "ViewBed";
+}
+
+<div class="grid w-full md:grid-cols-2 gap-10">
+    <div>
+        <h1 class="text-2xl font-bold mb-8">Room @Model.Room.RoomNumber - Details</h1>
+        <table class="w-full text-sm text-left">
+            <tbody class="text-md text-[#003ea8] bg-gray-50">
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">@Html.DisplayNameFor(model => model.Room.RoomNumber)</td>
+                    <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.Room.RoomNumber)</td>
+                </tr>
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">@Html.DisplayNameFor(model => model.Room.Floor)</td>
+                    <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.Room.Floor)</td>
+                </tr>
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">@Html.DisplayNameFor(model => model.Room.Dormitory)</td>
+                    <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.Room.Dormitory.DormitoryName)</td>
+                </tr>
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">@Html.DisplayNameFor(model => model.Room.RoomType)</td>
+                    <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.Room.RoomType.TypeName) - (Max Beds: @Html.DisplayFor(model => model.Room.RoomType.MaxBeds))</td>
+                </tr>
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">@Html.DisplayNameFor(model => model.Room.RoomType.PricePerMonth)</td>
+                    <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.Room.RoomType.PricePerMonthToString)</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div>
+        <form method="post">
+            <h1 class="text-2xl font-bold mb-2">List Beds in Room @Model.Room.RoomNumber</h1>
+            <ul class="grid w-full gap-6 md:grid-rows-2">
+                @foreach (var item in Model.Beds)
+                {
+                    <li>
+                        <input asp-for="RoomAllocation.BedId" type="radio" id="@item.BedId" name="hosting" value="@item.BedId" class="hidden peer" required />
+                        <label for="@item.BedId" class="inline-flex items-center justify-between w-full px-5 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:text-[#003ea8] hover:text-gray-600 hover:bg-gray-100">
+                            <div class="block">
+                                <div class="w-full text-lg font-semibold">@Html.DisplayFor(m => item.Room.RoomNumber) - @Html.DisplayFor(m => item.BedNumber)</div>
+                            </div>
+                            <i class="fa-solid fa-bed w-5 h-5 ms-3"></i>
+                        </label>
+                    </li>
+                }
+            </ul>
+            <div class="flex items-center justify-center mt-8">
+                <button onclick="OpenDialog()" type="submit" data-modal-target="confirm-booking" data-modal-toggle="confirm-booking" class='inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150' ]) }}> Book</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    Swal.fire({
+        title: "Do you want to save the changes?",
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "Save",
+        denyButtonText: `Don't save`
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire("Saved!", "aaa", "success");
+        } else if (result.isDenied) {
+            Swal.fire("Changes are not saved", "", "info");
+        }
+    });
+</script>

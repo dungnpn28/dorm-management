@@ -1,0 +1,84 @@
+﻿@page "/"
+@using DormitoryManagement.Models
+@using DormitoryManagement.Utils
+@inject IHttpContextAccessor HttpContextAccessor
+@model DormitoryManagement.Pages.HomeModel
+@{
+    var UserSession = SessionUtil.GetObjectFromJson<User>(HttpContextAccessor.HttpContext.Session, "User");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    @if (UserSession == null)
+    {
+        <div class="flex items-center flex-col">
+            <img src="https://ocd.fpt.edu.vn/Content/images/landing/bg3.jpg" alt="Dormitory" class="h-full w-full object-cover absolute top-0 left-0">
+            <div class="z-40 absolute top-0 left-0 w-full h-full bg-black/30"></div>
+            <h1 class="z-40 absolute flex justify-center mt-32 text-6xl font-bold text-white font-sans drop-shadow-lg shadow-black tracking-widest border-b border-white pb-4 px-4">HOLA CAMPUS</h1>
+            <h3 class="z-40 absolute flex justify-center mt-56 text-3xl font-md text-white font-sans drop-shadow-lg shadow-black tracking-widest">DORMITORY MANAGEMENT SYSTEM</h3>
+        </div>
+    }
+    else
+    {
+        <div class="grid grid-cols-2 gap-4">
+            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
+                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                </div>
+            </a>
+
+            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
+                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                </div>
+            </a>
+
+
+            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
+                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                </div>
+            </a>
+
+
+            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
+                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                </div>
+            </a>
+
+
+            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
+                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                </div>
+            </a>
+
+
+            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
+                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                </div>
+            </a>
+
+        </div>
+    }   
+</body>
+</html>

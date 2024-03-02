@@ -1,0 +1,96 @@
+﻿@page
+@model DormitoryManagement.Pages.Booking.ViewRoomModel
+
+@{
+    ViewData["Title"] = "ViewRoom";
+
+}
+
+<h1 class="text-3xl font-bold">Available Rooms</h1>
+<br />
+
+<form class="flex space-between gap-8" method="post">
+    <input class="rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" type="text" id="Search" placeholder="Search Room Number" asp-for="search" />
+    <select class="rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" id="Dormitory" name="SearchDormitoryId">
+        <option value="0">
+            Choose a dormitory
+        </option>
+        @foreach (var item in Model.Dormitory)
+        {
+            <option value="@item.DormitoryId">
+                @Html.DisplayFor(modelItem => item.DormitoryName)
+            </option>
+        }
+    </select>
+
+    <select class="rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" id="Floor" name="SearchFloor">
+        <option value="0">
+            Choose a floor
+        </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <button class="ms-4 inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'" type="submit">
+        <i class="mr-2 fa-solid fa-magnifying-glass"></i>
+        Search
+    </button>
+</form>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-8 mb-8">
+    <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-md text-[#003ea8] bg-gray-50 uppercase">
+            <tr class="">
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    @Html.DisplayNameFor(model => model.Room[0].RoomNumber)
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    @Html.DisplayNameFor(model => model.Room[0].Floor)
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    @Html.DisplayNameFor(model => model.Room[0].Dormitory)
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Room Type
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Number of beds
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+
+                </th>
+            </tr>
+        </thead>
+
+        <tbody class="font-semibold">
+            @foreach (var item in Model.Room)
+            {
+                <tr class=" bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.RoomNumber)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Floor)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Dormitory.DormitoryName)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.RoomType.TypeName)
+                    </td>
+                    <td class="px-6 py-4"> 
+                        @Html.DisplayFor(modelItem => item.RoomType.MaxBeds)
+                    </td>
+                    <td class="px-6 py-4">
+                        <a class="font-medium text-blue-600 hover:underline" asp-page="/Booking/ViewBed" asp-route-id="@item.RoomId">Detail</a>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+@Model.DataMessage

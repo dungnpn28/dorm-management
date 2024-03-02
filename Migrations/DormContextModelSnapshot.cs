@@ -196,6 +196,10 @@ namespace DormitoryManagement.Migrations
                         .HasColumnType("int")
                         .HasColumnName("max_beds");
 
+                    b.Property<decimal?>("PricePerMonth")
+                        .HasColumnType("money")
+                        .HasColumnName("price_per_month");
+
                     b.Property<string>("TypeName")
                         .IsRequired()
                         .HasMaxLength(255)

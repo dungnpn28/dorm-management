@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DormitoryManagement.Migrations
 {
     [DbContext(typeof(DormContext))]
-    [Migration("20240226184945_Initial")]
+    [Migration("20240229092241_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -198,6 +198,10 @@ namespace DormitoryManagement.Migrations
                     b.Property<int>("MaxBeds")
                         .HasColumnType("int")
                         .HasColumnName("max_beds");
+
+                    b.Property<decimal?>("PricePerMonth")
+                        .HasColumnType("money")
+                        .HasColumnName("price_per_month");
 
                     b.Property<string>("TypeName")
                         .IsRequired()

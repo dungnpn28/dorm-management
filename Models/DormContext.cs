@@ -34,7 +34,7 @@ public partial class DormContext : DbContext
     public virtual DbSet<WaterBill> WaterBills { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=localhost\\NAMDUNG;Initial Catalog=dorm;User ID=sa;Password=123;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -145,6 +145,9 @@ public partial class DormContext : DbContext
 
             entity.Property(e => e.RoomTypeId).HasColumnName("room_type_id");
             entity.Property(e => e.MaxBeds).HasColumnName("max_beds");
+            entity.Property(e => e.PricePerMonth)
+                .HasColumnType("money")
+                .HasColumnName("price_per_month");
             entity.Property(e => e.TypeName)
                 .HasMaxLength(255)
                 .IsUnicode(false)

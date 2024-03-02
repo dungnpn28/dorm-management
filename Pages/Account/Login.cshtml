@@ -1,0 +1,59 @@
+﻿@page
+@model DormitoryManagement.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="w-full h-screen font-sans text-gray-900 antialiased">
+        <div class="m-auto h-screen flex flex-col sm:justify-center items-center sm:pt-0">
+            <div>
+                <h2 class="font-bold text-3xl">LOG <span class="bg-[#003ea8] text-white px-2 rounded-md">IN</span></h2>
+            </div>
+
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                <form method="POST">
+
+                    <div class="py-8">
+                        <center>
+                            <span class="text-2xl font-semibold">Log In</span>
+                        </center>
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-sm text-gray-700" value="Email" />
+                        <input asp-for="UserDto.UserName"
+                               placeholder='Email/Username'
+                               class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" required />
+                        <span asp-validation-for="UserDto.UserName" class="text-danger"></span>
+
+                    </div>
+
+
+                    <div class="mt-4">
+                        <label class="block font-medium text-sm text-gray-700" for="password" value="Password" />
+                        <div class="relative">
+                            <input asp-for="UserDto.Password" id="password" type="password" placeholder="Password" required class='w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]'>
+                        </div>
+                        <span asp-validation-for="UserDto.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="flex items-center justify-end mt-4">
+                        <a class="hover:underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:cursor-pointer">
+                            Forgot your password?
+                        </a>
+
+                        <button type="submit" class='ms-4 inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150' ]) }}>
+                            Login
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
