@@ -62,18 +62,6 @@ namespace DormitoryManagement.Pages.Booking
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            var user = SessionUtil.GetObjectFromJson<User>(HttpContext.Session, "User");
-            if (user != null)
-            {
-                RoomAllocation.MoveInDate = DateTime.Now;
-                RoomAllocation.ResidentId = user.UserId;
-                _context.Add(RoomAllocation);
-                await _context.SaveChangesAsync();
-                return RedirectToPage("/BookingResult?result=1");
-            } 
-            
-        }
+        
     }
 }
