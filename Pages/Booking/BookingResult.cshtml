@@ -1,13 +1,69 @@
 ﻿@page
 @model DormitoryManagement.Pages.Booking.BookingResultModel
+
 @{
     ViewData["Title"] = "Booking Result";
 }
 
-<div>
-    <h1 class="text-2xl font-bold mb-8">Confirm Booking</h1>
+<div class="grid w-full md:grid-cols-2 gap-10">
+    <div>
+        <h1 class="text-2xl font-bold mb-8"> Bed Details </h1>
+        <table class="w-full text-sm text-left">
+            <tbody class="text-md text-[#003ea8] bg-gray-50">
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">@Html.DisplayNameFor(model => model.Bed.BedNumber)</td>
+                    <td class="pl-4 text-gray-500">  @Html.DisplayFor(model => model.Bed.Room.RoomNumber) - @Html.DisplayFor(model => model.Bed.BedNumber)</td>
+                </tr>
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">@Html.DisplayNameFor(model => model.Bed.Room)</td>
+                    <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.Bed.Room.RoomNumber)</td>
+                </tr>
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">@Html.DisplayNameFor(model => model.Bed.Room.Dormitory)</td>
+                    <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.Bed.Room.Dormitory.DormitoryName)</td>
+                </tr>
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">@Html.DisplayNameFor(model => model.Bed.Room.RoomType.PricePerMonth)</td>
+                    <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.Bed.Room.RoomType.PricePerMonthToString)</td>
+                </tr>
+                <tr class="bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4 bg-gray-200 font-medium text-black uppercase">Total</td>
+                    <td class="pl-4 text-gray-500 bg-gray-100 font-bold">@Html.DisplayFor(model => model.Bed.Room.RoomType.TotalPriceToString)</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="mt-8">
+            <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-[#003ea8]"
+                 role="status">
+                <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h1 class="text-2xl font-bold mb-8"> Payment </h1>
+        <p class="mb-4"><strong>[Required]</strong> Scan QR and add message of below format</p>
+        <div class="w-full flex">
+            @if (Model.Bed.Room.RoomType.RoomTypeId == 1)
+            {
 
+                <img src="~/img/stk3.jpg" class="w-50" />
+            }
+            @if (Model.Bed.Room.RoomType.RoomTypeId == 2)
+            {
 
+                <img src="~/img/stk4.jpg" class="w-50" />
+            }
+            @if (Model.Bed.Room.RoomType.RoomTypeId == 3)
+            {
+
+                <img src="~/img/stk6.jpg" class="w-50" />
+            }
+
+        </div>
+        <div class="mt-4">
+            <p class="font-bold">Message Format: [Student Roll Number] [Date]</p>
+            <p>Your Message: HE171417 @DateTime.Now.ToString("ddMMyyy")</p>
+        </div>
+    </div>
 </div>
-
 

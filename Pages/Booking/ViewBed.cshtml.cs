@@ -21,6 +21,7 @@ namespace DormitoryManagement.Pages.Booking
         }
 
         public Room Room { get; set; } = default!;
+
         public IList<Bed> Beds { get; set; } = default!;
 
         [BindProperty]
@@ -62,6 +63,28 @@ namespace DormitoryManagement.Pages.Booking
             return Page();
         }
 
-        
+        public async Task<IActionResult> OnPostAsync()
+        {
+            int BedId;
+
+            if (RoomAllocation.BedId != null)
+            {
+
+                BedId = (int) RoomAllocation.BedId;
+            }
+            else
+            {
+                return NotFound();
+            }
+
+            return RedirectToPage("/Booking/BookingResult", new { bedId = BedId });
+
+        }
+
+
+
+
+
+
     }
 }

@@ -32,7 +32,6 @@
                 </tr>
             </tbody>
         </table>
-
     </div>
     <div>
         <form method="post">
@@ -41,7 +40,7 @@
                 @foreach (var item in Model.Beds)
                 {
                     <li>
-                        <input asp-for="RoomAllocation.BedId" type="radio" id="@item.BedId" name="hosting" value="@item.BedId" class="hidden peer" required />
+                        <input asp-for="RoomAllocation.BedId" type="radio" id="@item.BedId" value="@item.BedId" class="hidden peer" required />
                         <label for="@item.BedId" class="inline-flex items-center justify-between w-full px-5 py-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer peer-checked:text-[#003ea8] hover:text-gray-600 hover:bg-gray-100">
                             <div class="block">
                                 <div class="w-full text-lg font-semibold">@Html.DisplayFor(m => item.Room.RoomNumber) - @Html.DisplayFor(m => item.BedNumber)</div>
@@ -57,18 +56,4 @@
         </form>
     </div>
 </div>
-<script>
-    Swal.fire({
-        title: "Do you want to save the changes?",
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: "Save",
-        denyButtonText: `Don't save`
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire("Saved!", "aaa", "success");
-        } else if (result.isDenied) {
-            Swal.fire("Changes are not saved", "", "info");
-        }
-    });
-</script>
+

@@ -57,9 +57,8 @@ namespace DormitoryManagement.Pages.Account
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "ModelState is not valid for some reason?");
-
-                return RedirectToPage("/Error");
+                ModelState.AddModelError("Email", "ModelState is not valid for some reason?");
+                return Page();
             }
 
 

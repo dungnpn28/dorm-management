@@ -2,3 +2,58 @@
 @model DormitoryManagement.Pages.Account.RegisterModel
 @{
 }
+<div class="w-full h-screen font-sans text-gray-900 antialiased">
+    <div class="m-auto h-screen flex flex-col sm:justify-center items-center sm:pt-0">
+        <div>
+            <h2 class="font-bold text-3xl">SIGN <span class="bg-[#003ea8] text-white px-2 rounded-md">IN</span></h2>
+        </div>
+
+        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <form method="POST">
+
+                <div class="py-8">
+                    <center>
+                        <span class="text-2xl font-semibold">Sign In</span>
+                    </center>
+                </div>
+
+                <div>
+                    <label class="block font-medium text-sm text-gray-700" value="Full Name" />
+                    <input placeholder='Full Name'
+                           class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" required />
+                    <span class="text-danger"></span>
+
+                </div>
+
+                <div class="mt-4/">
+                    <label class="block font-medium text-sm text-gray-700" value="Email" />
+                    <input placeholder='Email'
+                           class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" required />
+                    <span class="text-danger"></span>
+
+                </div>
+
+
+                <div class="mt-4">
+                    <label class="block font-medium text-sm text-gray-700" for="password" value="Password" />
+                    <div class="relative">
+                        <input id="password" type="password" placeholder="Password" required class='w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]'>
+                    </div>
+                    <span class="text-danger"></span>
+                </div>
+
+                <div class="flex items-center justify-end mt-4">
+                    <a asp-page="/Account/Login" class="hover:underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:cursor-pointer">
+                        Already have an account?
+                    </a>
+
+                    <button type="submit" class='ms-4 inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150' ]) }}>
+                        Register
+                    </button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
