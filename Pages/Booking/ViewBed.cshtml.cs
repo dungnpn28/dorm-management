@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DormitoryManagement.Models;
 using Microsoft.IdentityModel.Tokens;
 using DormitoryManagement.Utils;
+using System.Diagnostics;
 
 namespace DormitoryManagement.Pages.Booking
 {
@@ -65,19 +66,28 @@ namespace DormitoryManagement.Pages.Booking
 
         public async Task<IActionResult> OnPostAsync()
         {
+            var User = SessionUtil.GetObjectFromJson<User>(HttpContext.Session, "User");
             int BedId;
 
             if (RoomAllocation.BedId != null)
             {
 
                 BedId = (int) RoomAllocation.BedId;
+                
             }
             else
             {
                 return NotFound();
             }
+            
+            BookingRequest bookingRequest = new BookingRequest();
+            bookingRequest.BedId = BedId;
+            bookingRequest.ResidentId = User.UserId;
 
-            return RedirectToPage("/Booking/BookingResult", new { bedId = BedId });
+            _context.BookingRequests.Add(bookingRequest);
+            _context.SaveChanges();
+
+            return RedirectToPage("/Booking/BookingResult");
 
         }
 

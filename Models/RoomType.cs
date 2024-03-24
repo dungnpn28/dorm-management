@@ -17,7 +17,6 @@ public partial class RoomType
     public virtual ICollection<Room> Rooms { get; set; } = new List<Room>();
 
     public string PricePerMonthToString => string.Format(new CultureInfo("vi-VN"), "{0:C}", PricePerMonth);
-    public string TotalPriceToString => string.Format(new CultureInfo("vi-VN"), "{0:C}", PricePerMonth * 4);
 
-    
+    public string TotalPriceToString => string.Format(new CultureInfo("vi-VN"), "{0:C}", PricePerMonth * 4);
 }

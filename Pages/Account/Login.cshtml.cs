@@ -3,6 +3,7 @@ using DormitoryManagement.Models;
 using DormitoryManagement.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Diagnostics;
 using System.Linq;
 
 namespace DormitoryManagement.Pages.Account
@@ -32,11 +33,11 @@ namespace DormitoryManagement.Pages.Account
             if (ModelState.IsValid)
             {
                 // Check if the provided username and password match a user in the database
-                var user = _context.Users.FirstOrDefault(u => u.Username == UserDto.UserName && u.Password == UserDto.Password);
-
+                var userList = _context.Users.ToList();
+                var user = userList.FirstOrDefault(u => u.Username.ToLower().Equals(UserDto.UserName) && u.Password.Equals(UserDto.Password, StringComparison.Ordinal));
                 if (user == null)
                 {
-                    user = _context.Users.FirstOrDefault(u => u.Mail == UserDto.UserName && u.Password == UserDto.Password);
+                    user = userList.FirstOrDefault(u => u.Mail.ToLower().Equals(UserDto.UserName) && u.Password.Equals(UserDto.Password, StringComparison.Ordinal));
 
                     if (user == null)
                     {
@@ -57,7 +58,7 @@ namespace DormitoryManagement.Pages.Account
             }
             else
             {
-                ModelState.AddModelError("Email", "ModelState is not valid for some reason?");
+                Debug.WriteLine("ModelState invalid - Login Page");
                 return Page();
             }
 

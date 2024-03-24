@@ -19,9 +19,9 @@ public partial class User
 
     public string? Gender { get; set; }
 
-    public string? PhoneNumber { get; set; }
-
     public string? Mail { get; set; }
+
+    public string? StudentCode { get; set; }
 
     public virtual UserRole Role { get; set; } = null!;
 

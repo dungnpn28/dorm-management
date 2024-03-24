@@ -17,9 +17,13 @@ public partial class DormContext : DbContext
 
     public virtual DbSet<Bed> Beds { get; set; }
 
+    public virtual DbSet<BookingRequest> BookingRequests { get; set; }
+
     public virtual DbSet<Dormitory> Dormitories { get; set; }
 
     public virtual DbSet<ElectricityBill> ElectricityBills { get; set; }
+
+    public virtual DbSet<RegisterToken> RegisterTokens { get; set; }
 
     public virtual DbSet<Room> Rooms { get; set; }
 
@@ -35,7 +39,7 @@ public partial class DormContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=localhost\\NAMDUNG;Initial Catalog=dorm;User ID=sa;Password=123;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=dorm;User ID=sa;Password=123;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -52,6 +56,17 @@ public partial class DormContext : DbContext
             entity.HasOne(d => d.Room).WithMany(p => p.Beds)
                 .HasForeignKey(d => d.RoomId)
                 .HasConstraintName("FK__bed__room_id__31EC6D26");
+        });
+
+        modelBuilder.Entity<BookingRequest>(entity =>
+        {
+            entity.HasKey(e => e.BookId).HasName("PK__booking___490D1AE16CEEAA25");
+
+            entity.ToTable("booking_request");
+
+            entity.Property(e => e.BookId).HasColumnName("book_id");
+            entity.Property(e => e.BedId).HasColumnName("bed_id");
+            entity.Property(e => e.ResidentId).HasColumnName("resident_id");
         });
 
         modelBuilder.Entity<Dormitory>(entity =>
@@ -85,6 +100,41 @@ public partial class DormContext : DbContext
             entity.HasOne(d => d.Room).WithMany(p => p.ElectricityBills)
                 .HasForeignKey(d => d.RoomId)
                 .HasConstraintName("FK__electrici__room___398D8EEE");
+        });
+
+        modelBuilder.Entity<RegisterToken>(entity =>
+        {
+            entity.HasKey(e => e.TokenId).HasName("PK__register__CB3C9E171EB12632");
+
+            entity.ToTable("register_token");
+
+            entity.Property(e => e.TokenId).HasColumnName("token_id");
+            entity.Property(e => e.Dob)
+                .HasColumnType("date")
+                .HasColumnName("dob");
+            entity.Property(e => e.ExpireDate)
+                .HasColumnType("datetime")
+                .HasColumnName("expire_date");
+            entity.Property(e => e.Gender)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("gender");
+            entity.Property(e => e.Mail)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("mail");
+            entity.Property(e => e.Name)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("name");
+            entity.Property(e => e.Password)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("password");
+            entity.Property(e => e.TokenCode)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("token_code");
         });
 
         modelBuilder.Entity<Room>(entity =>
@@ -180,11 +230,11 @@ public partial class DormContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("password");
-            entity.Property(e => e.PhoneNumber)
-                .HasMaxLength(20)
-                .IsUnicode(false)
-                .HasColumnName("phone_number");
             entity.Property(e => e.RoleId).HasColumnName("role_id");
+            entity.Property(e => e.StudentCode)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("student_code");
             entity.Property(e => e.Username)
                 .HasMaxLength(255)
                 .IsUnicode(false)

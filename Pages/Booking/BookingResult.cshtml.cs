@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DormitoryManagement.Models;
+using DormitoryManagement.Utils;
+using System.Diagnostics;
 
 namespace DormitoryManagement.Pages.Booking
 {
@@ -18,29 +20,38 @@ namespace DormitoryManagement.Pages.Booking
             _context = context;
         }
 
-      public Bed Bed { get; set; } = default!; 
+        public Bed Bed { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? bedId)
+        public RoomAllocation? RoomAllocation { get; set; } = default!;
+        public BookingRequest? BookingRequest { get; set; } = default!;
+
+
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (bedId == null || _context.Beds == null)
+            int? bedId = null;
+            var User = SessionUtil.GetObjectFromJson<User>(HttpContext.Session, "User");
+            var bookingRequest = await _context.BookingRequests.FirstOrDefaultAsync(b => b.ResidentId == User.UserId);
+            var roomAllocation = await _context.RoomAllocations.FirstOrDefaultAsync(r => r.ResidentId == User.UserId);
+            if (bookingRequest != null)
             {
-                return NotFound();
+                bedId = bookingRequest.BedId;
             }
-
+            if (roomAllocation != null)
+            {
+                bedId = roomAllocation.BedId;
+            }
             var bed = await _context.Beds
                 .Include(m => m.Room)
                 .Include(m => m.Room.Dormitory)
                 .Include(m => m.Room.RoomType)
                 .FirstOrDefaultAsync(m => m.BedId == bedId);
-            if (bed == null)
-            {
-                return NotFound();
-            }
-            else 
-            {
-                Bed = bed;
-            }
+
+            Bed = bed;
+            BookingRequest = bookingRequest;
+            RoomAllocation = roomAllocation;
+
             return Page();
         }
+
     }
 }

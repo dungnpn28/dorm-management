@@ -18,29 +18,42 @@
                 </div>
 
                 <div>
-                    <label class="block font-medium text-sm text-gray-700" value="Full Name" />
-                    <input placeholder='Full Name'
+                    <input asp-for="tokenDto.Name" placeholder='Full Name'
                            class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" required />
-                    <span class="text-danger"></span>
+                    <span asp-validation-for="tokenDto.Name" class="text-danger"></span>
 
                 </div>
 
-                <div class="mt-4/">
-                    <label class="block font-medium text-sm text-gray-700" value="Email" />
-                    <input placeholder='Email'
+                <div class="mt-4">
+                    <input asp-for="tokenDto.Mail" id="email" placeholder='Email'
                            class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" required />
-                    <span class="text-danger"></span>
+                    <span asp-validation-for="tokenDto.Mail" class="text-danger"></span>
 
                 </div>
 
 
                 <div class="mt-4">
-                    <label class="block font-medium text-sm text-gray-700" for="password" value="Password" />
                     <div class="relative">
-                        <input id="password" type="password" placeholder="Password" required class='w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]'>
+                        <input asp-for="tokenDto.Password" id="password" type="password" placeholder="Password" required class='w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]'>
                     </div>
-                    <span class="text-danger"></span>
+                    <span asp-validation-for="tokenDto.Password" class="text-danger"></span>
                 </div>
+
+                <div class="mt-4">
+                    <div class="relative">
+                        <input asp-for="tokenDto.Dob" id="dob" type="date" placeholder="Date of birth" required class='w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]'>
+                    </div>
+                    <span asp-validation-for="tokenDto.Dob" class="text-danger"></span>
+                </div>
+
+                <div class="mt-4">
+                    <select asp-for="tokenDto.Gender" class="rounded-md py-1.5 px-2 border text-sm text-gray-700 outline-[#003ea8]" id="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+
+                    </select>
+                </div>
+
 
                 <div class="flex items-center justify-end mt-4">
                     <a asp-page="/Account/Login" class="hover:underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:cursor-pointer">

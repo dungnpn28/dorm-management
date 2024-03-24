@@ -30,6 +30,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Account/RegisterVerify.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3RlclZlcmlmeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Admin/DormitoryManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRG9ybWl0b3J5TWFuYWdlbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Booking/BookingResult.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZ1xCb29raW5nUmVzdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -56,26 +64,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Rooms/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXNcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Rooms/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXNcRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Rooms/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXNcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Rooms/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXNcRWRpdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Rooms/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUm9vbXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Shared/_ValidationScriptsPartial.cshtml]

@@ -1,12 +1,22 @@
 ﻿@page
-@model DormitoryManagement.Pages.Booking.ViewRoomModel
+@model DormitoryManagement.Pages.Admin.DormitoryManagementModel
 
 @{
-    ViewData["Title"] = "ViewRoom";
-
+    ViewData["Title"] = "Dormitory Management";
 }
+<style>
+    /* Styles for the popup */
+    .popup {
+        display: none;
+    }
 
-<h1 class="text-3xl font-bold">Available Rooms</h1>
+    /* Styles for the overlay */
+    .overlay {
+        display: none;
+    }
+</style>
+
+<h1 class="text-3xl font-bold">Dormitory Management</h1>
 <br />
 
 <form class="flex space-between gap-8" method="post">
@@ -37,6 +47,16 @@
         <i class="mr-2 fa-solid fa-magnifying-glass"></i>
         Search
     </button>
+    <button id="DormPop" class="ms-4 inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'">
+        <i class="mrfa-solid fa-door-open"></i>
+        Add new room
+    </button>
+    <div id="popup" class="popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-md shadow-lg z-50">
+        <h2 class="text-lg font-semibold mb-4">Add New Room</h2>
+        <input type="text" placeholder="Enter dormitory name" />
+    </div>
+    <div id="overlay" class="overlay fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40"></div>
+
 </form>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-8 mb-8">
     <table class="w-full text-sm text-left text-gray-500">
@@ -53,9 +73,6 @@
                 </th>
                 <th class="px-6 py-4 font-medium whitespace-nowrap">
                     Room Type
-                </th>
-                <th class="px-6 py-4 font-medium whitespace-nowrap">
-                    Number of beds
                 </th>
                 <th class="px-6 py-4 font-medium whitespace-nowrap">
 
@@ -79,13 +96,12 @@
                     <td class="px-6 py-4">
                         @Html.DisplayFor(modelItem => item.RoomType.TypeName)
                     </td>
-                    <td class="px-6 py-4"> 
-                        @Html.DisplayFor(modelItem => item.RoomType.MaxBeds)
-                    </td>
                     <td class="px-6 py-4">
-                        <a class="font-medium text-blue-600 hover:underline" asp-page="/Booking/ViewBed" asp-route-id="@item.RoomId">Detail</a>
-                    </td>
+                        <a class="font-medium text-blue-600 hover:underline cursor-pointer">Edit</a> |
+                        <a class="font-medium text-blue-600 hover:underline cursor-pointer">Add bills</a> |
+                        <a class="font-medium text-blue-600 hover:underline cursor-pointer">View Beds</a>
 
+                    </td>
                 </tr>
             }
 
@@ -94,3 +110,25 @@
     </table>
 </div>
 @Model.DataMessage
+
+<script>
+    document.getElementById('openPopup').addEventListener('click', function () {
+        document.getElementById('DormPop').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    });
+
+    // Close the popup when the overlay is clicked
+    document.getElementById('overlay').addEventListener('click', function () {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    });
+
+    // You can also add functionality to close the popup using a close button inside the popup itself
+    /*
+    document.getElementById('closePopup').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    });
+    */
+</script>
+
