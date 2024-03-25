@@ -1,0 +1,43 @@
+﻿@page
+@model DormitoryManagement.Pages.Booking.MyRoomModel
+
+@{
+    ViewData["Title"] = "My Room";
+}
+@if (Model.Message == null)
+{
+
+    <h1 class="text-2xl font-bold mb-8"> My Current Room </h1>
+
+    <table class="w-full text-sm text-left">
+        <tbody class="text-md text-[#003ea8] bg-gray-50">
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Bed Number</td>
+                <td class="pl-4 text-gray-500">  @Html.DisplayFor(model => model.RoomAllocation.Bed.Room.RoomNumber) - @Html.DisplayFor(model => model.RoomAllocation.Bed.BedNumber)</td>
+            </tr>
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Room</td>
+                <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.RoomAllocation.Bed.Room.RoomNumber)</td>
+            </tr>
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Dormitory</td>
+                <td class="pl-4 text-gray-500">@Html.DisplayFor(model => model.RoomAllocation.Bed.Room.Dormitory.DormitoryName)</td>
+            </tr>
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Move In Date</td>
+                <td class="pl-4 text-gray-500">@Model.RoomAllocation.MoveInDate.ToShortDateString()</td>
+            </tr>
+        </tbody>
+    </table>
+    <form method="post">
+        <div class="mt-8 flex justify-content-start">
+            <button class="ms-4 inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'" type="submit">
+                Move out
+            </button>
+        </div>
+    </form>
+}
+else
+{
+    <h1 class="text-2xl font-bold mb-8"> @Model.Message </h1>
+}

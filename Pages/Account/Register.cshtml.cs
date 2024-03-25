@@ -18,8 +18,14 @@ namespace DormitoryManagement.Pages.Account
         }
         [BindProperty]
         public TokenDto tokenDto { get; set; }
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            var User = SessionUtil.GetObjectFromJson<User>(HttpContext.Session, "User");
+            if (User != null)
+            {
+                return Redirect("/");
+            }
+            return Page();
         }
 
         public IActionResult OnPost()

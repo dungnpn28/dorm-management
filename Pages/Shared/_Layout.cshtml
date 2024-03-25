@@ -28,6 +28,7 @@
                     <div class="flex items-center">
                         <span class="font-semibold text-gray-900 dark:text-white">@UserSession.Name</span>
                         <span class="w-10 h-10 ml-3 flex items-center justify-center text-blue-900 dark:text-blue-100 bg-blue-300 dark:bg-blue-700 rounded-full"><i class="fa-solid fa-user-tie"></i></span>
+                        <a asp-area="" asp-page="/Account/Logout" class="ml-5 px-4 py-2 bg-gray-700 text-white font-semibold rounded-md shadow-md hover:bg-gray-600 hover:shadow-lg active:bg-gray-500">Logout</a>
                     </div>
             }
             else
@@ -48,33 +49,112 @@
             <aside id="logo-sidebar" class="fixed top-16 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 drop-shadow-lg shadow-black" aria-label="Sidebar">
                 <div class="h-full w-full px-3 py-4 pt-20 flex flex-col justify-between overflow-y-auto bg-gray-100 dark:bg-gray-800">
                     <ul class="space-y-2">
-                        <li>
-                            <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
-                               asp-area="" asp-page="/Index">
-                                <span class="w-8 text-center">
-                                    <i class="fa-solid fa-house"></i>
-                                </span>
-                                <span class="ml-3">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
-                               asp-area="" asp-page="/Privacy">
-                                <span class="w-8 text-center">
-                                    <i class="fa-solid fa-bed"></i>
-                                </span>
-                                <span class="flex-1 ml-3 whitespace-nowrap">Privacy</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
-                               asp-area="" asp-page="/User/Index">
-                                <span class="w-8 text-center">
-                                    <i class="fa-solid fa-id-card"></i>
-                                </span>
-                                <span class="ml-3">User</span>
-                            </a>
-                        </li>
+                        @if (UserSession.RoleId == 1)
+                        {
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/Home">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-house"></i>
+                                    </span>
+                                    <span class="ml-3">Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/MyProfile">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-id-badge"></i>
+                                    </span>
+                                    <span class="ml-3">My Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/Admin/BookingRequest">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-hourglass-start"></i>
+                                    </span>
+                                    <span class="ml-3">Pending Requests</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/Admin/RoomManagement">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-door-open"></i>
+                                    </span>
+                                    <span class="flex-1 ml-3 whitespace-nowrap">Room Manage</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/User/Index">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-id-card"></i>
+                                    </span>
+                                    <span class="ml-3">User Manage</span>
+                                </a>
+                            </li>
+                        }
+                        else if (UserSession.RoleId == 2)
+                        {
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/Home">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-house"></i>
+                                    </span>
+                                    <span class="ml-3">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/MyProfile">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-id-badge"></i>
+                                    </span>
+                                    <span class="ml-3">My Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/Booking/MyRoom">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-person-booth"></i>
+                                    </span>
+                                    <span class="ml-3">My Room</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/Booking/ViewRoom">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-door-open"></i>
+                                    </span>
+                                    <span class="ml-3">Book Room</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/Booking/BookingResult">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-hourglass-start"></i>
+                                    </span>
+                                    <span class="ml-3">My Booking Request</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700"
+                                   asp-area="" asp-page="/Bill/ViewBill">
+                                    <span class="w-8 text-center">
+                                        <i class="fa-solid fa-money-bill"></i>
+                                    </span>
+                                    <span class="ml-3">My Bills</span>
+                                </a>
+                            </li>
+                            
+                        }
                     </ul>
                 </div>
             </aside>

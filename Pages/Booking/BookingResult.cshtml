@@ -5,7 +5,7 @@
     ViewData["Title"] = "Booking Result";
 }
 
-@if (Model.BookingRequest != null || Model.RoomAllocation != null)
+@if (Model.BookingRequest != null || (Model.RoomAllocation  != null && Model.RoomAllocation.MoveOutDate == null))
 {
 
 
@@ -39,7 +39,7 @@
             @if (Model.RoomAllocation != null)
             {
                 <div class="mt-8">
-                    Booked Bed @Model.Bed.BedId Successfully! Check it out <a href="facebook.com">HERE</a>!
+                    Booked Bed Successfully! Check it out <a class="text-[#003ea8]" asp-page="/Booking/MyRoom">HERE</a>!
                 </div>
             }
             else

@@ -1,0 +1,42 @@
+﻿@page
+@model DormitoryManagement.Pages.MyProfileModel
+
+@{
+    ViewData["Title"] = "MyProfile";
+}
+
+<h1 class="text-2xl font-bold mb-8"> My Profile </h1>
+
+<table class="w-full text-sm text-left">
+    <tbody class="text-md text-[#003ea8] bg-gray-50">
+        <tr class="bg-white border-b hover:bg-gray-50">
+            <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Name</td>
+            <td class="pl-4 text-gray-500">@Model.User.Name</td>
+        </tr>
+        <tr class="bg-white border-b hover:bg-gray-50">
+            <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Username</td>
+            <td class="pl-4 text-gray-500">@Model.User.Username</td>
+        </tr>
+        <tr class="bg-white border-b hover:bg-gray-50">
+            <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Mail</td>
+            <td class="pl-4 text-gray-500">@Model.User.Mail</td>
+        </tr>
+        @if (Model.User.RoleId == 2)
+        {
+            <tr class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Student Code</td>
+                <td class="pl-4 text-gray-500 uppercase">@Model.User.StudentCode</td>
+            </tr>
+        }
+        <tr class="bg-white border-b hover:bg-gray-50">
+            <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Date of birth</td>
+            <td class="pl-4 text-gray-500">@string.Format("{0:dd/MM/yyyy}", Model.User.Dob)</td>
+        </tr>
+        <tr class="bg-white border-b hover:bg-gray-50">
+            <td class="px-6 py-4 bg-gray-50 font-medium text-[#003ea8] uppercase">Gender</td>
+            <td class="pl-4 text-gray-500">@Model.User.Gender</td>
+        </tr>
+    </tbody>
+</table>
+<div>
+</div>

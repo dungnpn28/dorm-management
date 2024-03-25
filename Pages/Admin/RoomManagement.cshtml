@@ -1,0 +1,188 @@
+﻿@page
+@model DormitoryManagement.Pages.Admin.DormitoryManagementModel
+
+@{
+    ViewData["Title"] = "Room Management";
+}
+
+<h1 class="mb-8 text-3xl font-bold">Room Management</h1>
+
+<form class="flex space-between gap-8" method="post">
+    <input class="rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" type="text" id="Search" placeholder="Search Room Number" asp-for="search" />
+    <select class="rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" id="Dormitory" name="SearchDormitoryId">
+        <option value="0">
+            Choose a dormitory
+        </option>
+        @foreach (var item in Model.Dormitory)
+        {
+            <option value="@item.DormitoryId">
+                @Html.DisplayFor(modelItem => item.DormitoryName)
+            </option>
+        }
+    </select>
+
+    <select class="rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" id="Floor" name="SearchFloor">
+        <option value="0">
+            Choose a floor
+        </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <button class="ms-4 inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'" type="submit">
+        <i class="mr-2 fa-solid fa-magnifying-glass"></i>
+        Search
+    </button>
+    <button id="OpenRoom" class="ms-4 inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'" type="button">
+        <i class="mr-2 fa-solid fa-door-open"></i>
+        Add New Room
+    </button>
+
+
+
+    <div id="RoomPop" class="hidden popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-md shadow-lg z-50">
+        <h2 class="text-lg font-semibold mb-4">Add New Room</h2>
+        <table>
+            <tr class="mb-4">
+                <td>
+                    <label class="mr-2" for="DormitoryAdd">Dormitory</label>
+                </td>
+                <td>
+                    <select asp-for="AddRoom.DormitoryId" class="rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" id="DormitoryAdd">
+                        @foreach (var item in Model.Dormitory)
+                        {
+                            <option value="@item.DormitoryId">
+                                @Html.DisplayFor(modelItem => item.DormitoryName)
+                            </option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr class="mb-4">
+                <td>
+                    <label class="mr-2" for="RoomNumberAdd">Room Number</label>
+                </td>
+                <td>
+                    <input asp-for="AddRoom.RoomNumber" type="text" placeholder="Enter Room Number" class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" id="RoomNumberAdd" />
+                </td>
+            </tr>
+            <tr class="mb-4">
+                <td>
+                    <label class="mr-2" for="FloorAdd">Floor</label>
+                </td>
+                <td>
+                    <select asp-for="AddRoom.Floor" class="rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" id="FloorAdd">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="mb-4">
+                <td>
+                    <label class="mr-2" for="RoomTypeAdd">Room Type</label>
+                </td>
+                <td>
+                    <select asp-for="AddRoom.RoomTypeId" class="rounded-md py-2.5 px-4 border text-sm outline-[#003ea8]" id="RoomTypeAdd">
+                        @foreach (var item in Model.RoomType)
+                        {
+                            <option value="@item.RoomTypeId">
+                                @Html.DisplayFor(modelItem => item.TypeName)
+                            </option>
+                        }
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+
+        <button class="mt-4 ms-4 inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'" type="submit">
+            Add
+        </button>
+    </div>
+    <div id="overlay" class="hidden overlay fixed top-0 left-0 w-full h-full bg-black opacity-50 z-40"></div>
+
+</form>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-8 mb-8">
+    <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-md text-[#003ea8] bg-gray-50 uppercase">
+            <tr class="">
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Room Number
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    @Html.DisplayNameFor(model => model.Room[0].Floor)
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    @Html.DisplayNameFor(model => model.Room[0].Dormitory)
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Room Type
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Status
+                </th>
+            </tr>
+        </thead>
+
+        <tbody class="font-semibold">
+            @foreach (var item in Model.Room)
+            {
+                <tr class=" bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.RoomNumber)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Floor)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Dormitory.DormitoryName)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.RoomType.TypeName)
+                    </td>
+                    <td class="px-6 py-4">
+                        @if (item.AvailabilityStatus == 1)
+                        {
+                            <span class="text-green-400">Available</span>
+                        }
+                        else
+                        {
+                            <span class="text-red">Unavailable</span>
+
+                        }
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+@Model.DataMessage
+
+<script>
+    document.getElementById('OpenRoom').addEventListener('click', function () {
+        document.getElementById('RoomPop').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    });
+
+    // Close the popup when the overlay is clicked
+    document.getElementById('overlay').addEventListener('click', function () {
+        document.getElementById('RoomPop').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    });
+
+    // You can also add functionality to close the popup using a close button inside the popup itself
+    /*
+    document.getElementById('closePopup').addEventListener('click', function() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    });
+    */
+</script>
+

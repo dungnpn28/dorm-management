@@ -22,9 +22,14 @@ namespace DormitoryManagement.Pages.Account
 
 
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            HttpContext.Session.Remove("User");
+            var User = SessionUtil.GetObjectFromJson<User>(HttpContext.Session, "User");
+            if (User != null)
+            {
+                return Redirect("/");
+            }
+            return Page();
         }
 
         public IActionResult OnPost()

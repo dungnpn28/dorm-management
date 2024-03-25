@@ -1,0 +1,64 @@
+﻿@page
+@model DormitoryManagement.Pages.Admin.BookingRequestModel
+
+@{
+    ViewData["Title"] = "Booking Request";
+}
+
+<h1 class="mb-8 text-3xl font-bold">Pending Booking Requests</h1>
+
+<form method="post">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-8 mb-8">
+        <table class="w-full text-sm text-left text-gray-500">
+            <thead class="text-md text-[#003ea8] bg-gray-50 uppercase">
+                <tr class="">
+                    <th class="px-6 py-4 font-medium whitespace-nowrap">
+                        Full Name
+                    </th>
+                    <th class="px-6 py-4 font-medium whitespace-nowrap">
+                        Student Code
+                    </th>
+                    <th class="px-6 py-4 font-medium whitespace-nowrap">
+                        Bed
+                    </th>
+                    <th class="px-6 py-4 font-medium whitespace-nowrap">
+                        Dormitory
+                    </th>
+                    <th class="px-6 py-4 font-medium whitespace-nowrap">
+
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="font-semibold">
+                @foreach (var item in Model.BookingRequest)
+                {
+                    <tr class=" bg-white border-b hover:bg-gray-50">
+                        <td class="px-6 py-4">
+                            @Html.DisplayFor(modelItem => item.Resident.Name)
+                        </td>
+                        <td class="px-6 py-4 uppercase">
+                            @Html.DisplayFor(modelItem => item.Resident.StudentCode)
+                        </td>
+                        <td class="px-6 py-4">
+                            @Html.DisplayFor(modelItem => item.Bed.Room.RoomNumber) - @Html.DisplayFor(modelItem => item.Bed.BedNumber)
+                        </td>
+                        <td class="px-6 py-4">
+                            @Html.DisplayFor(modelItem => item.Bed.Room.Dormitory.DormitoryName)
+                        </td>
+                        <td class="px-6 py-4">
+                            <input asp-for="BookId" type="hidden" value="@item.BookId" />
+                            <button type="submit" class="ms-4 inline-flex items-center px-4 py-2 bg-[#003ea8] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'">
+                                <i class="mr-2 fa-solid fa-door-open"></i>
+                                Accept
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+    @Model.Message
+</form>

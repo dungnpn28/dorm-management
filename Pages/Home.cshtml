@@ -25,60 +25,100 @@
     }
     else
     {
+
+
+
         <div class="grid grid-cols-2 gap-4">
-            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
-                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
-                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </a>
+            @if (UserSession.RoleId == 2)
+            {
+                <a asp-page="/Home" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/homepage.jpg" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Home Page</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Go to the Homepage of Dormitory Management</p>
+                    </div>
+                </a>
 
-            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
-                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
-                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </a>
-
-
-            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
-                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
-                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </a>
-
-
-            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
-                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
-                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </a>
+                <a asp-page="/MyProfile" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/userprofile.jpg" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">My Profile</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">See my user profile</p>
+                    </div>
+                </a>
+                <a asp-page="/Booking/MyRoom" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/myroom.jpg" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">My Room</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">See my current accommodation information</p>
+                    </div>
+                </a>
 
 
-            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
-                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
-                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </a>
+                <a asp-page="/Booking/ViewRoom" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/bookroom.jpg" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Book Room</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">View available rooms and send booking request</p>
+                    </div>
+                </a>
 
 
-            <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="https://www.imgacademy.com/sites/default/files/legacyhotel6.jpg" alt="">
-                <div class="flex flex-col justify-between px-4 py-2 leading-normal">
-                    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Noteworthy technology acquisitions 2021</h5>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                </div>
-            </a>
+                <a asp-page="/Booking/BookingResult" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/bookingrequest.png" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">My Booking Request</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">See my booking request</p>
+                    </div>
+                </a>
 
+
+                <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/bills.jpg" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">My Bills</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">See my bills</p>
+                    </div>
+                </a>
+            } else
+            {
+                <a asp-page="/" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/homepage.jpg" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Dashboard</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">Go to dashboard page</p>
+                    </div>
+                </a>
+                <a asp-page="/MyProfile" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/userprofile.jpg" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">My Profile</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">View my user profile</p>
+                    </div>
+                </a>
+                <a asp-page="/Admin/UserManagement" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/usermana.jpg" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">User Management</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">View users and change role</p>
+                    </div>
+                </a>
+                <a asp-page="/Admin/RoomManagement" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/bookroom.jpg" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Room Management</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">View rooms and edit rooms</p>
+                    </div>
+                </a>
+                <a asp-page="/Admin/BookingRequest" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <img class="object-cover w-full rounded-t-lg h-full md:w-48 md:rounded-none md:rounded-s-lg" src="~/img/bookingrequest.png" alt="">
+                    <div class="flex flex-col justify-between px-4 py-2 leading-normal">
+                        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 ">Pending Requests</h5>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm">View pending requests</p>
+                    </div>
+                </a>
+            }
         </div>
-    }   
+    }
 </body>
 </html>

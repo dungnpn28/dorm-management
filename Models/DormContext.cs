@@ -67,6 +67,16 @@ public partial class DormContext : DbContext
             entity.Property(e => e.BookId).HasColumnName("book_id");
             entity.Property(e => e.BedId).HasColumnName("bed_id");
             entity.Property(e => e.ResidentId).HasColumnName("resident_id");
+
+            entity.HasOne(d => d.Bed).WithMany(p => p.BookingRequests)
+                .HasForeignKey(d => d.BedId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_BookingRequest_Bed");
+
+            entity.HasOne(d => d.Resident).WithMany(p => p.BookingRequests)
+                .HasForeignKey(d => d.ResidentId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_BookingRequest_Resident");
         });
 
         modelBuilder.Entity<Dormitory>(entity =>

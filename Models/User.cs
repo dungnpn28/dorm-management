@@ -23,6 +23,8 @@ public partial class User
 
     public string? StudentCode { get; set; }
 
+    public virtual ICollection<BookingRequest> BookingRequests { get; set; } = new List<BookingRequest>();
+
     public virtual UserRole Role { get; set; } = null!;
 
     public virtual ICollection<RoomAllocation> RoomAllocations { get; set; } = new List<RoomAllocation>();

@@ -13,6 +13,26 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\img\\bills.jpg",
+      "PackagePath": "staticwebassets\\img\\bills.jpg"
+    },
+    {
+      "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\img\\bookingrequest.png",
+      "PackagePath": "staticwebassets\\img\\bookingrequest.png"
+    },
+    {
+      "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\img\\bookroom.jpg",
+      "PackagePath": "staticwebassets\\img\\bookroom.jpg"
+    },
+    {
+      "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\img\\homepage.jpg",
+      "PackagePath": "staticwebassets\\img\\homepage.jpg"
+    },
+    {
+      "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\img\\myroom.jpg",
+      "PackagePath": "staticwebassets\\img\\myroom.jpg"
+    },
+    {
       "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\img\\stk3.jpg",
       "PackagePath": "staticwebassets\\img\\stk3.jpg"
     },
@@ -23,6 +43,14 @@
     {
       "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\img\\stk6.jpg",
       "PackagePath": "staticwebassets\\img\\stk6.jpg"
+    },
+    {
+      "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\img\\usermana.jpg",
+      "PackagePath": "staticwebassets\\img\\usermana.jpg"
+    },
+    {
+      "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\img\\userprofile.jpg",
+      "PackagePath": "staticwebassets\\img\\userprofile.jpg"
     },
     {
       "Id": "D:\\02_FPTU\\07_Semester7\\PRN221\\DormitoryManagement\\wwwroot\\js\\site.js",

@@ -22,6 +22,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,12 +38,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3RlclZlcmlmeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Admin/DormitoryManagement.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRG9ybWl0b3J5TWFuYWdlbWVudC5jc2h0bWw=
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Admin/BookingRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQm9va2luZ1JlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Admin/RoomManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUm9vbU1hbmFnZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Admin/UserManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlck1hbmFnZW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Booking/BookingResult.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZ1xCb29raW5nUmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Booking/MyRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQm9va2luZ1xNeVJvb20uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Booking/ViewBed.cshtml]
@@ -60,6 +76,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/MyProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTXlQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/02_FPTU/07_Semester7/PRN221/DormitoryManagement/Pages/Privacy.cshtml]

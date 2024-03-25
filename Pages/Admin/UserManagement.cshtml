@@ -1,0 +1,69 @@
+﻿@page
+@model DormitoryManagement.Pages.Admin.UserManagementModel
+
+@{
+    ViewData["Title"] = "UserManagement";
+}
+
+<h1 class="mb-8 text-3xl font-bold">User Management</h1>
+
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-8 mb-8">
+    <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-md text-[#003ea8] bg-gray-50 uppercase">
+            <tr class="">
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Full Name
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Student Code
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Date of birth
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Gender
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+                    Role
+                </th>
+                <th class="px-6 py-4 font-medium whitespace-nowrap">
+
+                </th>
+            </tr>
+        </thead>
+
+        <tbody class="font-semibold">
+            @foreach (var item in Model.User)
+            {
+                <tr class=" bg-white border-b hover:bg-gray-50">
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td class="px-6 py-4 uppercase">
+                        @Html.DisplayFor(modelItem => item.StudentCode)
+                    </td>
+                    <td class="px-6 py-4">
+                        @string.Format("{0:dd/MM/yyyy}", item.Dob)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td class="px-6 py-4 uppercase">
+                        @Html.DisplayFor(modelItem => item.Role.RoleName)
+                    </td>
+                    <form method="post">
+                    <td class="px-6 py-4">
+                        <input asp-for="UserId" type="hidden" value="@item.UserId" />
+                        <button type="submit" class="font-medium text-blue-600 hover:underline cursor-pointer">Change role</button>
+                    </td>
+                    </form>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>

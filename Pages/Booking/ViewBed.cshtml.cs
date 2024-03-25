@@ -28,8 +28,11 @@ namespace DormitoryManagement.Pages.Booking
         [BindProperty]
         public RoomAllocation RoomAllocation { get; set; } = default!;
 
+        public string? Message { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            Message = null;
             if (id == null || _context.Rooms == null)
             {
                 return NotFound();
@@ -66,7 +69,21 @@ namespace DormitoryManagement.Pages.Booking
 
         public async Task<IActionResult> OnPostAsync()
         {
+            
             var User = SessionUtil.GetObjectFromJson<User>(HttpContext.Session, "User");
+            var roomAllocation = _context.RoomAllocations.FirstOrDefault(r => r.ResidentId == User.UserId);
+            var bRequest = _context.BookingRequests.FirstOrDefault(r => r.ResidentId == User.UserId);
+            if (roomAllocation != null)
+            {
+                Message = "Booked";
+                return Page();
+            }
+            if (bRequest !=null)
+            {
+                Message = "Requested";
+                return Page();
+            }
+
             int BedId;
 
             if (RoomAllocation.BedId != null)

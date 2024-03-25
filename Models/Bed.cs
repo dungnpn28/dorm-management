@@ -11,6 +11,8 @@ public partial class Bed
 
     public int BedNumber { get; set; }
 
+    public virtual ICollection<BookingRequest> BookingRequests { get; set; } = new List<BookingRequest>();
+
     public virtual Room? Room { get; set; }
 
     public virtual ICollection<RoomAllocation> RoomAllocations { get; set; } = new List<RoomAllocation>();

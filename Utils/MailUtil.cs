@@ -17,7 +17,7 @@ namespace DormitoryManagement.Utils
             _smtpClient.EnableSsl = true;
             _smtpClient.Credentials = new NetworkCredential(_senderEmail, _senderPassword);
 
-            string verificationLink = _verificationBaseUrl + "/Account/RegisterVerify?tokenCode=" + token + "&mail=" +email;
+            string verificationLink = _verificationBaseUrl + "/Account/RegisterVerify?tokenCode=" + token + "&mail=" + email ;
             var mailMessage = new MailMessage(_senderEmail, email);
             mailMessage.Subject = "Email Verification for " + email;
             mailMessage.Body = $"Please click the following link to verify your email address: <a href='{verificationLink}'>Here</a>";
